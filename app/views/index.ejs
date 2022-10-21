@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+        <link href="content/stylesheets/styles.css" rel="stylesheet">
+
+    <!-- FontAwesome CDN-->
+      <script src="https://kit.fontawesome.com/83048fdd3d.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <!-- There are three partials in each page:
+     1) Header : This has the navbar that is shared across all pages
+     2) Page Content: This is dynamically managed based on the page variable that is being passed to the EJS template. It will render based on the variable defined in the controllers file
+     3) Footer : This has the footer content that is shared across all pages
+    -->
+    
+    <%- include("components/header.ejs") %> 
+        
+    <%- include("content/" + page + ".ejs") %>
+
+    <%- include("components/footer") %>
+
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+</html>
