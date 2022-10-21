@@ -14,7 +14,13 @@
           </tr>
         </thead>
         <tbody id="contactList">
+          <!-- Sort the businesscontacts array -->
+
+          <% businesscontacts.sort((a,b) => (a.contactname > b.contactname) ? 1
+          : ((a.contactname < b.contactname) ? -1 : 0)) %>
+
           <!-- Repeatable Rows -->
+
           <% for(let count = 0; count < businesscontacts.length; count++) { %>
           <tr>
             <th scope="row" class="text-center"><%= count + 1 %></th>
