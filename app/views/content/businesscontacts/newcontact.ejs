@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <form class="form" method="POST">
+      <input type="hidden" name="id" value="<%= businesscontacts._id %>" />
+
+      <div class="mb-3">
+        <label for="contactname" class="form-label">Name: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="contactname"
+          name="contactname"
+          value="<%= businesscontacts.contactname %>"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="contactphone" class="form-label">Phone: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="contactphone"
+          name="contactphone"
+          value="<%= businesscontacts.contactnumber %>"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="contactemail" class="form-label">Email: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="contactemail"
+          name="contactemail"
+          value="<%= businesscontacts.contactemail %>"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        Create / Modify Contact
+      </button>
+
+      <a href="/buscontacts" class="btn btn-warning">
+        <i class="fas fa-undo"></i> Cancel
+      </a>
+
+      <% if (businesscontacts._id) { %>
+
+      <a
+        href="/deletecontact/<%= businesscontacts._id %>"
+        class="btn btn-danger"
+      >
+        <i class="fa-solid fa-trash"></i> Delete
+      </a>
+
+      <% } %>
+    </form>
+  </div>
+</div>

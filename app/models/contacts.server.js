@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
-const Schema = new mongoose.Schema();
+const Schema = mongoose.Schema;
 
 const BusinessContactSchema = new Schema(
   {
     contactname: String,
     contactnumber: String,
-    contactEmail: String,
+    contactemail: String,
   },
   {
     timestamps: true,
