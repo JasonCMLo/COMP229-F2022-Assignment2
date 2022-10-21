@@ -32,9 +32,13 @@ import {
   ProcessAddContacts,
   DisplayEditContacts,
   ProcessContactDelete,
-} from "../controllers/buscontacts.server.js";
+} from "../controllers/buscontacts.controller.server.js";
 
-import { DisplayLoginPage } from "../controllers/user.server.js";
+import {
+  DisplayLoginPage,
+  ProcessLoginPage,
+  ProcessLogout,
+} from "../controllers/user.controller.server.js";
 
 const router = Router();
 
@@ -46,7 +50,8 @@ router.get("/contact", contactPage);
 router.get("/projects", projectsPage);
 router.post("/", homePage);
 
-router.get("/login", DisplayLoginPage);
+// business contact functionality
+
 router.get("/buscontacts", DisplayBusinessContacts);
 router.get("/editcontact", DisplayAddContacts);
 router.get("/editcontact/:id", DisplayEditContacts);
@@ -54,5 +59,11 @@ router.get("/deletecontact/:id", ProcessContactDelete);
 
 router.post("/editcontact", ProcessAddContacts);
 router.post("/editcontact/:id", ProcessEditContacts);
+
+// login page functionality
+
+router.get("/login", DisplayLoginPage);
+router.post("/login", ProcessLoginPage);
+router.get("/logout", ProcessLogout);
 
 export default router;

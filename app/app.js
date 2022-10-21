@@ -14,6 +14,7 @@ Updated: October 21, 2022
 
 // Latest updates:
 //  - Importing Mongoose to implement functionality for Mongo DB
+//  - importing passport, passportlocal, flash for authentication functionality
 
 // Import third party Modules
 
@@ -22,6 +23,9 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 import session from "express-session";
 import mongoose from "mongoose";
+import passport from "passport";
+import passportLocal from "passport-local";
+import flash from "connect-flash";
 
 // Set dirname variable
 import path, { dirname } from "path";
@@ -37,13 +41,45 @@ const app = express();
 
 // Connect to MongoDB
 
-import { MongoURI } from "../config/config.js";
+import { Secret, MongoURI } from "../config/config.js";
 
 mongoose.connect(MongoURI);
 const db = mongoose.connection;
 
 db.on("open", () => console.log("Connected to Mongo"));
 db.on("error", () => console.log("Error connecting to mongo"));
+
+/* Authentication steps 
+    - local strategy
+    - import user model
+    - manage express session
+    - setup flash
+    - initialize passport
+    - implement auth strategy
+    - serailization and deserialization
+*/
+
+let localStrategy = passportLocal.Strategy;
+
+import User from "./models/users.server.js";
+
+app.use(
+  session({
+    secret: Secret,
+    saveUninitialized: false,
+    resave: false,
+  })
+);
+
+app.use(flash());
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(User.createStrategy());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // Set view engine to EJS
 app.set("views", path.join(__dirname, "/views"));

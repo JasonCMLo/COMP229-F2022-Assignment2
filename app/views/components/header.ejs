@@ -52,6 +52,23 @@
                     Contacts
                   </a>
                 </li>
+
+                <% if (!activeUser) { %>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="/login"
+                    ><i class="fa-solid fa-table-list fa-lg"></i> Login
+                  </a>
+                </li>
+
+                <% } else {%>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout"
+                    ><i class="fa-solid fa-door-open"></i> Logout
+                  </a>
+                </li>
+
+                <% } %>
               </ul>
             </div>
           </div>

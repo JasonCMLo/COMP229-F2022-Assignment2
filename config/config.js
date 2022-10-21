@@ -1,3 +1,5 @@
+export const Secret = "MySecret";
+
 // Mongo URI
 
 export const MongoURI =
