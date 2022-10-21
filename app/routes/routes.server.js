@@ -21,6 +21,10 @@ import {
   projectsPage,
 } from "../controllers/controllers.server.js";
 
+import { DisplayBusinessContacts } from "../controllers/buscontacts.server.js";
+
+import { DisplayLoginPage } from "../controllers/user.server.js";
+
 const router = Router();
 
 router.get("/", homePage);
@@ -29,6 +33,9 @@ router.get("/about", aboutPage);
 router.get("/services", servicePage);
 router.get("/contact", contactPage);
 router.get("/projects", projectsPage);
+
+router.get("/login", DisplayLoginPage);
+router.get("/buscontacts", DisplayBusinessContacts);
 
 router.post("/", homePage);
 
