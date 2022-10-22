@@ -45,7 +45,7 @@ export function DisplayAddContacts(req, res, next) {
   });
 }
 
-// Process new / edit of a contact
+// Process new / edit /delete of a contact
 
 export function DisplayEditContacts(req, res, next) {
   let id = req.params.id;

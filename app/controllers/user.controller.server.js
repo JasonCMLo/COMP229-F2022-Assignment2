@@ -28,6 +28,8 @@ export function DisplayLoginPage(req, res, next) {
   return res.redirect("/buscontacts");
 }
 
+// Login a user
+
 export function ProcessLoginPage(req, res, next) {
   passport.authenticate("local", function (err, user, info) {
     if (err) {
@@ -48,6 +50,8 @@ export function ProcessLoginPage(req, res, next) {
     });
   })(req, res, next);
 }
+
+// Log the user out
 
 export function ProcessLogout(req, res, next) {
   req.logOut(function (err) {

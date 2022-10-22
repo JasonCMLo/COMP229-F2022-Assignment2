@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Business Contacts</h1>
   <div class="row">
-    <div class="col">
+    <div class="col-12">
       <table class="table table-striped table-bordered table-hover">
         <thead class="table-dark">
           <tr>
@@ -28,7 +28,7 @@
             <td><%= businesscontacts[count].contactnumber %></td>
             <td><%= businesscontacts[count].contactemail %></td>
 
-            <td class="text-center col-1">
+            <td class="text-center">
               <a
                 href="/editcontact/<%= businesscontacts[count]._id %>"
                 class="btn btn-primary btn-sm"
@@ -37,7 +37,7 @@
               >
             </td>
 
-            <td class="text-center col-1">
+            <td class="text-center">
               <a
                 href="/deletecontact/<%= businesscontacts[count]._id %>"
                 class="btn btn-danger btn-sm"
@@ -52,7 +52,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col-12">
       <a href="/editcontact" class="btn btn-primary" role="button">
         <i class="fas fa-plus-circle"></i> Add a new contact</a
       >

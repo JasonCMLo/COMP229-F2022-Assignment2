@@ -17,6 +17,8 @@ Latest updates:
 
 import { Router } from "express";
 
+// import the various functions from each controller file
+
 import {
   homePage,
   aboutPage,
@@ -41,6 +43,8 @@ import {
 } from "../controllers/user.controller.server.js";
 
 const router = Router();
+
+// Link each route to a specific function to expose the appropriate functionality
 
 router.get("/", homePage);
 router.get("/home", homePage);
