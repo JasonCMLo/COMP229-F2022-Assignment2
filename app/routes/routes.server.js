@@ -42,6 +42,8 @@ import {
   ProcessLogout,
 } from "../controllers/user.controller.server.js";
 
+import { AuthGuard } from "../utils/index.js";
+
 const router = Router();
 
 // Link each route to a specific function to expose the appropriate functionality
@@ -56,13 +58,13 @@ router.post("/", homePage);
 
 // business contact functionality
 
-router.get("/buscontacts", DisplayBusinessContacts);
-router.get("/editcontact", DisplayAddContacts);
-router.get("/editcontact/:id", DisplayEditContacts);
-router.get("/deletecontact/:id", ProcessContactDelete);
+router.get("/buscontacts", AuthGuard, DisplayBusinessContacts);
+router.get("/editcontact", AuthGuard, DisplayAddContacts);
+router.get("/editcontact/:id", AuthGuard, DisplayEditContacts);
+router.get("/deletecontact/:id", AuthGuard, ProcessContactDelete);
 
-router.post("/editcontact", ProcessAddContacts);
-router.post("/editcontact/:id", ProcessEditContacts);
+router.post("/editcontact", AuthGuard, ProcessAddContacts);
+router.post("/editcontact/:id", AuthGuard, ProcessEditContacts);
 
 // login page functionality
 
